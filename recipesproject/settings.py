@@ -19,9 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+v!wkay!9dhv&ehgk+!g92=h%*h5z&#=8==+9h%_)%k17p9ep+'
-MYSQL_PASSWORD = 'diu-g87&*iuhUI&7Hi'
 # SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-+v!wkay!9dhv&ehgk+!g92=h%*h5z&#=8==+9h%_)%k17p9ep+'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 SESSION_COOKIE_SECURE = True
@@ -29,7 +29,7 @@ CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'maxplus3.pythonanywhere.com',
+    # 'maxplus3.pythonanywhere.com',
 
 ]
 
@@ -79,20 +79,10 @@ WSGI_APPLICATION = 'recipesproject.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'maxplus3$default',
-        'USER': 'maxplus3',
-        'PASSWORD': MYSQL_PASSWORD,
-        'HOST': 'maxplus3.mysql.pythonanywhere-services.com',
-        'OPTIONS': {
-            'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'PASSWORD': os.getenv('MYSQL_PASSWORD')
     }
 
 }

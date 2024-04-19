@@ -5,9 +5,11 @@
  
 <form method="post">
     {% csrf_token %}
-<input type="hidden" name="next" value="{{ next }}" />
     {{ form.as_p }}
     <p ><button type="submit">Регистрация</button></p>
+    <p ><a href="{% url 'login' %}"><button type="button">войти</button></a></p>
+    <p ><a href="{% url 'main' %}"><button type="button">главная</button></a></p>
+
 </form>
  
 {% endblock %}
