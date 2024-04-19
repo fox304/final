@@ -1,0 +1,29 @@
+{% extends 'myrecipes/base.html' %}
+
+{%  block content2 %}
+
+<p><h2>{{ recipe.name }}</h2>
+<strong>категория - {{ recipe.category }}</strong></p>
+{% if recipe.image %}
+<img src="{{ recipe.image.url }}" width=200px alt="">
+{% endif %}
+<h3> инградиенты </h3>
+<p>{{ recipe.ingredients | linebreaks }}</p>
+<h3> шаги приготовления </h3>
+<p>{{ recipe.steps | linebreaks }}</p>
+<h3> время приготовления </h3>
+<p>{{ recipe.time_minutes }} минут</p>
+<h3> автор </h3>
+<p>{% if not recipe.author %}
+    неизвестен
+    {% else %} <em>{{ recipe.author }}</em>
+    {% endif %}</p>
+<hr style="margin-right:100px ;">
+<a href="{% url 'edit' recipe.pk %}">редактирование</a> |
+<a href="{% url 'delete' recipe.pk %}">удаление</a> |
+<a href="{% url 'main' %}">на главную</a>
+
+{% endblock %}
+
+
+

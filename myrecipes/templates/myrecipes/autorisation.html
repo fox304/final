@@ -1,0 +1,17 @@
+{% extends 'myrecipes/base.html' %}
+ 
+{% block content %}
+<h3>авторизация</h3>
+ 
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p ><button type="submit" >жми</button></p>
+</form>
+<a href="{% url 'main' %}">главная</a>
+ 
+{% endblock %}
+
+{% block content2 %}
+{{ msg }}
+{% endblock %}

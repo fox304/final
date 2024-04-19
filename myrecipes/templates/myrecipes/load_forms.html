@@ -1,0 +1,13 @@
+{% extends 'myrecipes/base.html' %}
+
+{% block content2 %}
+
+ <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+<hr>
+<p><a href="{% url 'main' %}">на главную</a></p>
+
+{% endblock %}
